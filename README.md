@@ -10,7 +10,7 @@
 [![standard][standard-image]][standard-url]
 [![renovate-app badge][renovate-badge]][renovate-app]
 
-**Supports** Travis CI.
+**Supports** Travis CI, Circle v2
 
 ## Install
 
