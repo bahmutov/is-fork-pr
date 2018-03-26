@@ -5,6 +5,7 @@
 [![NPM][npm-icon]][npm-url]
 
 [![Build status][ci-image]][ci-url]
+[![CircleCI](https://circleci.com/gh/bahmutov/is-fork-pr.svg?style=svg)](https://circleci.com/gh/bahmutov/is-fork-pr)
 [![semantic-release][semantic-image]][semantic-url]
 [![standard][standard-image]][standard-url]
 [![renovate-app badge][renovate-badge]][renovate-app]
