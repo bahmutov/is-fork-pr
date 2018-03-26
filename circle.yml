@@ -1,0 +1,24 @@
+version: 2
+
+jobs:
+  test:
+    parallelism: 1
+    working_directory: ~/is-fork-pr
+    docker:
+      - image: cypress/base:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: is-fork-pr-{{ .Branch }}-1
+      - run: npm ci
+      - save_cache:
+          key: is-fork-pr-{{ .Branch }}-1-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+      - run: npm test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
