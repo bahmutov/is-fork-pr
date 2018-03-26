@@ -2,7 +2,7 @@
 
 > Returns true if CI is building a pull request from a remote fork
 
-[![NPM][with-package-icon]][with-package-url]
+[![NPM][npm-icon]][npm-url]
 
 [![Build status][ci-image]][ci-url]
 [![semantic-release][semantic-image]][semantic-url]
