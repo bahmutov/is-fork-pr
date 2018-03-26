@@ -10,11 +10,12 @@ jobs:
       - checkout
       - restore_cache:
           key: is-fork-pr-{{ .Branch }}-1
-      - run: npm ci
+      - run: npm install
       - save_cache:
           key: is-fork-pr-{{ .Branch }}-1-{{ checksum "package.json" }}
           paths:
             - ~/.npm
+            - node_modules
       - run: npm test
 
 workflows:
