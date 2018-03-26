@@ -1,8 +1,12 @@
 'use strict'
 
-// for now print every var
-Object.keys(process.env).forEach(name => {
-  console.log('%s:', name, process.env[name])
-})
+const isForkPrTravis = () => {
+  if (!process.env.TRAVIS_PULL_REQUEST) {
+    return false
+  }
+  return process.env.TRAVIS_REPO_SLUG === process.env.TRAVIS_PULL_REQUEST_SLUG
+}
 
-module.exports = true
+const isForkPr = isForkPrTravis
+
+module.exports = isForkPr
