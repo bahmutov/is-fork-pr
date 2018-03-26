@@ -6,7 +6,8 @@
  * are NOT set.
  */
 const isForkPrTravis = () => {
-  if (!process.env.TRAVIS_PULL_REQUEST) {
+  // for pull requests, Travis sets a number. Otherwise it has value "false"
+  if (process.env.TRAVIS_PULL_REQUEST === 'false') {
     return false
   }
   return process.env.TRAVIS_REPO_SLUG !== process.env.TRAVIS_PULL_REQUEST_SLUG

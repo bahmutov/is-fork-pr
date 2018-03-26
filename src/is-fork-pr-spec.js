@@ -13,6 +13,10 @@ describe('is-fork-pr', () => {
 
   it('finds if fork PR', () => {
     console.log('TRAVIS_PULL_REQUEST', process.env.TRAVIS_PULL_REQUEST)
+    console.log(
+      'typeof TRAVIS_PULL_REQUEST',
+      typeof process.env.TRAVIS_PULL_REQUEST
+    )
     if (process.env.TRAVIS_PULL_REQUEST) {
       console.log('TRAVIS_PULL_REQUEST checked')
     }
