@@ -4,7 +4,7 @@
 const isForkPr = require('.')
 
 describe('is-fork-pr', () => {
-  it('print all env vars', () => {
+  it.skip('print all env vars', () => {
     // for now print every var
     Object.keys(process.env).forEach(name => {
       console.log('%s:', name, process.env[name])
