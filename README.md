@@ -9,6 +9,8 @@
 [![standard][standard-image]][standard-url]
 [![renovate-app badge][renovate-badge]][renovate-app]
 
+**Supports** Travis CI.
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
@@ -18,6 +20,13 @@ npm install --save is-fork-pr
 ```
 
 ## Use
+
+```js
+const isForkPr = require('is-fork-pr')
+if (isForkPr()) {
+  console.log('building forked PR, no environment vars')
+}
+```
 
 ### CI variables
 
