@@ -13,6 +13,18 @@ const isForkPrTravis = () => {
   return process.env.TRAVIS_REPO_SLUG !== process.env.TRAVIS_PULL_REQUEST_SLUG
 }
 
-const isForkPr = isForkPrTravis
+const isString = s => typeof s === 'string'
+
+const isForkPrCircle = () => {
+  if (!process.env.CIRCLE_PR_NUMBER) {
+    return false
+  }
+  return (
+    isString(process.env.CIRCLE_PR_USERNAME) &&
+    isString(process.env.CIRCLE_PR_REPONAME)
+  )
+}
+
+const isForkPr = () => isForkPrTravis() || isForkPrCircle()
 
 module.exports = isForkPr

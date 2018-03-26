@@ -11,7 +11,7 @@ describe('is-fork-pr', () => {
     })
   })
 
-  it('finds if fork PR', () => {
+  it('finds if fork PR on Travis', () => {
     console.log('TRAVIS_PULL_REQUEST', process.env.TRAVIS_PULL_REQUEST)
     console.log(
       'typeof TRAVIS_PULL_REQUEST',
@@ -25,6 +25,14 @@ describe('is-fork-pr', () => {
       'TRAVIS_PULL_REQUEST_SLUG',
       process.env.TRAVIS_PULL_REQUEST_SLUG
     )
+    console.log('is fork PR?', isForkPr())
+  })
+
+  it('finds fork PR on Circle', () => {
+    console.log('type of CIRCLE_PR_NUMBER', typeof process.env.CIRCLE_PR_NUMBER)
+    console.log('CIRCLE_PR_NUMBER', process.env.CIRCLE_PR_NUMBER)
+    console.log('CIRCLE_PR_USERNAME', process.env.CIRCLE_PR_USERNAME)
+    console.log('CIRCLE_PR_REPONAME', process.env.CIRCLE_PR_REPONAME)
     console.log('is fork PR?', isForkPr())
   })
 })
