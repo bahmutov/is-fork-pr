@@ -12,6 +12,15 @@ describe('is-fork-pr', () => {
   })
 
   it('finds if fork PR', () => {
+    console.log('TRAVIS_PULL_REQUEST', process.env.TRAVIS_PULL_REQUEST)
+    if (process.env.TRAVIS_PULL_REQUEST) {
+      console.log('TRAVIS_PULL_REQUEST checked')
+    }
+    console.log('TRAVIS_REPO_SLUG', process.env.TRAVIS_REPO_SLUG)
+    console.log(
+      'TRAVIS_PULL_REQUEST_SLUG',
+      process.env.TRAVIS_PULL_REQUEST_SLUG
+    )
     console.log('is fork PR?', isForkPr())
   })
 })
