@@ -16,6 +16,7 @@ jobs:
           paths:
             - ~/.npm
             - node_modules
+      - run: $(npm bin)/print-env CIRCLE
       - run: npm test
 
 workflows:
