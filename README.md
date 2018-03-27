@@ -23,7 +23,7 @@ npm install --save is-fork-pr
 ## Use
 
 ```js
-const isForkPr = require('is-fork-pr')
+const isForkPr = require('is-fork-pr').isForkPr
 if (isForkPr()) {
   console.log('building forked PR, no environment vars')
 }

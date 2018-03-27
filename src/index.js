@@ -27,4 +27,4 @@ const isForkPrCircle = () => {
 
 const isForkPr = () => isForkPrTravis() || isForkPrCircle()
 
-module.exports = isForkPr
+module.exports = { isForkPr }

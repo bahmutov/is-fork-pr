@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-env mocha */
-const isForkPr = require('.')
+const isForkPr = require('.').isForkPr
 
 describe('is-fork-pr', () => {
   it.skip('print all env vars', () => {
