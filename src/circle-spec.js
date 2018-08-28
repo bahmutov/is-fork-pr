@@ -11,6 +11,7 @@ describe('Circle forked PR', () => {
   beforeEach(() => {
     restore = mockedEnv(
       {
+        CIRCLECI: 'true',
         CIRCLE_PR_NUMBER: '1',
         CIRCLE_PR_REPONAME: 'is-fork-pr',
         CIRCLE_PR_USERNAME: 'cypress-io',
@@ -36,6 +37,7 @@ describe('Circle own PR', () => {
   beforeEach(() => {
     restore = mockedEnv(
       {
+        CIRCLECI: 'true',
         CIRCLE_PULL_REQUEST: 'https://github.com/bahmutov/is-fork-pr/pull/19',
         CIRCLE_PULL_REQUESTS: 'https://github.com/bahmutov/is-fork-pr/pull/19'
       },

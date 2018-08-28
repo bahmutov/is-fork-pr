@@ -11,6 +11,7 @@ describe('Travis forked PR', () => {
   beforeEach(() => {
     restore = mockedEnv(
       {
+        TRAVIS: 'true',
         TRAVIS_PULL_REQUEST: '16',
         TRAVIS_PULL_REQUEST_SLUG: 'bahmutov/is-fork-pr',
         TRAVIS_REPO_SLUG: 'foo/bar'
@@ -34,6 +35,7 @@ describe('Travis own PR', () => {
   beforeEach(() => {
     restore = mockedEnv(
       {
+        TRAVIS: 'true',
         TRAVIS_PULL_REQUEST: 'false',
         TRAVIS_PULL_REQUEST_SLUG: 'bahmutov/is-fork-pr'
       },

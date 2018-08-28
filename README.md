@@ -10,8 +10,6 @@
 [![standard][standard-image]][standard-url]
 [![renovate-app badge][renovate-badge]][renovate-app]
 
-**Supports** Travis CI, Circle v2
-
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
@@ -29,10 +27,10 @@ if (isForkPr()) {
 }
 ```
 
-### CI variables
+### Supports
 
-* [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
-* [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
+- Travis CI, [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
+- Circle CI v2, [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
 
 ### Small print
 
