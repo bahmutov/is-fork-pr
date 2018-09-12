@@ -88,7 +88,7 @@
     "lazy-ass": "1.6.0",
     "license-checker": "20.2.0",
     "mocha": "5.2.0",
-    "mocked-env": "1.2.0",
+    "mocked-env": "1.2.1",
     "nsp": "3.2.1",
     "pre-git": "3.17.1",
     "prettier-standard": "8.0.1",
