@@ -31,6 +31,7 @@ if (isForkPr()) {
 
 - Travis CI, [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
 - Circle CI v2, [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
+- AppVeyor CI [env variables](https://www.appveyor.com/docs/environment-variables/)
 
 ### Small print
 
