@@ -5,17 +5,16 @@ const isForkPr = require('.').isForkPr
 const mockedEnv = require('mocked-env')
 const la = require('lazy-ass')
 
-context('Travis', () => {
-  describe('forked PR', () => {
+describe('Appveyor', () => {
+  context('forked PR', () => {
     let restore
 
     beforeEach(() => {
       restore = mockedEnv(
         {
-          TRAVIS: 'true',
-          TRAVIS_PULL_REQUEST: '16',
-          TRAVIS_PULL_REQUEST_SLUG: 'bahmutov/is-fork-pr',
-          TRAVIS_REPO_SLUG: 'foo/bar'
+          APPVEYOR: 'True',
+          APPVEYOR_REPO_NAME: 'bahmutov/is-fork-pr',
+          APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME: 'external/is-fork-pr'
         },
         { clear: true }
       )
@@ -30,15 +29,15 @@ context('Travis', () => {
     })
   })
 
-  describe('own PR', () => {
+  context('own PR', () => {
     let restore
 
     beforeEach(() => {
       restore = mockedEnv(
         {
-          TRAVIS: 'true',
-          TRAVIS_PULL_REQUEST: 'false',
-          TRAVIS_PULL_REQUEST_SLUG: 'bahmutov/is-fork-pr'
+          APPVEYOR: 'True',
+          APPVEYOR_REPO_NAME: 'bahmutov/is-fork-pr',
+          APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME: 'bahmutov/is-fork-pr'
         },
         { clear: true }
       )

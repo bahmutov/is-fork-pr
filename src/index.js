@@ -40,6 +40,30 @@ const isForkPrCircle = () => {
   )
 }
 
-const isForkPr = () => isForkPrTravis() || isForkPrCircle()
+/**
+ * Returns true if this is AppVeyor building forked PR from another repo.
+ *
+ * @see https://github.com/bahmutov/is-fork-pr/issues/87
+ */
+const isForkPrAppVeyor = () => {
+  const {
+    APPVEYOR,
+    APPVEYOR_REPO_NAME,
+    APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME
+  } = process.env
+
+  if (
+    !APPVEYOR ||
+    !APPVEYOR_REPO_NAME ||
+    !APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME
+  ) {
+    return false
+  }
+
+  return APPVEYOR_REPO_NAME !== APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME
+}
+
+const isForkPr = () =>
+  isForkPrTravis() || isForkPrCircle() || isForkPrAppVeyor()
 
 module.exports = { isForkPr }
