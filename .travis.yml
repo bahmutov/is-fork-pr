@@ -5,13 +5,13 @@ cache:
 notifications:
   email: true
 node_js:
-  - '8'
+  - '10'
 script:
   - npm start
   - $(npm bin)/print-env TRAVIS
   - npm test
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
