@@ -77,7 +77,7 @@
     }
   },
   "devDependencies": {
-    "@bahmutov/print-env": "1.1.0",
+    "@bahmutov/print-env": "1.2.0",
     "ban-sensitive-files": "1.9.2",
     "check-more-types": "2.24.0",
     "dependency-check": "3.3.0",
