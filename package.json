@@ -29,8 +29,12 @@
   },
   "files": [
     "src/*.js",
+    "src/bin/*.js",
     "!src/*-spec.js"
   ],
+  "bin": {
+    "is-fork-pr": "src/bin/is.js"
+  },
   "homepage": "https://github.com/bahmutov/is-fork-pr#readme",
   "keywords": [
     "ci",
@@ -63,7 +67,8 @@
     "unused-deps": "dependency-check --unused --no-dev .",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once",
-    "start": "node ."
+    "start": "node .",
+    "demo": "node ./src/bin/is.js"
   },
   "release": {
     "analyzeCommits": {

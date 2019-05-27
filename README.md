@@ -27,6 +27,14 @@ if (isForkPr()) {
 }
 ```
 
+### CLI
+
+```
+$(npm bin)/is-fork-pr
+```
+
+Prints if a supported CI detected and if this is a forked PR
+
 ### Supports
 
 - Travis CI, [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
