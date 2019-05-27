@@ -16,7 +16,6 @@
       ],
       "pre-push": [
         "npm run unused-deps",
-        "npm run secure",
         "npm run license",
         "npm run ban -- --all",
         "npm run size"
@@ -30,8 +29,12 @@
   },
   "files": [
     "src/*.js",
+    "src/bin/*.js",
     "!src/*-spec.js"
   ],
+  "bin": {
+    "is-fork-pr": "src/bin/is.js"
+  },
   "homepage": "https://github.com/bahmutov/is-fork-pr#readme",
   "keywords": [
     "ci",
@@ -58,14 +61,14 @@
     "prelint": "npm run pretty",
     "pretest": "npm run lint",
     "pretty": "prettier-standard 'src/*.js'",
-    "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev .",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once",
-    "start": "node ."
+    "start": "node .",
+    "demo": "node ./src/bin/is.js"
   },
   "release": {
     "analyzeCommits": {
@@ -79,18 +82,19 @@
     }
   },
   "devDependencies": {
-    "@bahmutov/print-env": "1.1.0",
+    "@bahmutov/print-env": "1.2.0",
     "ban-sensitive-files": "1.9.2",
-    "dependency-check": "3.1.0",
-    "deps-ok": "1.2.2",
+    "check-more-types": "2.24.0",
+    "dependency-check": "3.3.0",
+    "deps-ok": "1.4.1",
     "git-issues": "1.3.1",
-    "license-checker": "18.0.0",
-    "mocha": "5.0.5",
-    "nsp": "3.2.1",
+    "lazy-ass": "1.6.0",
+    "license-checker": "25.0.1",
+    "mocha": "6.1.4",
+    "mocked-env": "1.2.4",
     "pre-git": "3.17.1",
-    "prettier-standard": "8.0.0",
-    "semantic-release": "15.1.4",
-    "standard": "11.0.1",
-    "travis-deploy-once": "4.4.1"
+    "prettier-standard": "9.1.1",
+    "semantic-release": "15.13.12",
+    "standard": "12.0.1"
   }
 }

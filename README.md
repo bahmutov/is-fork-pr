@@ -10,8 +10,6 @@
 [![standard][standard-image]][standard-url]
 [![renovate-app badge][renovate-badge]][renovate-app]
 
-**Supports** Travis CI.
-
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
@@ -23,16 +21,25 @@ npm install --save is-fork-pr
 ## Use
 
 ```js
-const isForkPr = require('is-fork-pr')
+const isForkPr = require('is-fork-pr').isForkPr
 if (isForkPr()) {
   console.log('building forked PR, no environment vars')
 }
 ```
 
-### CI variables
+### CLI
 
-* [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
-* [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
+```
+$(npm bin)/is-fork-pr
+```
+
+Prints if a supported CI detected and if this is a forked PR
+
+### Supports
+
+- Travis CI, [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
+- Circle CI v2, [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
+- AppVeyor CI [env variables](https://www.appveyor.com/docs/environment-variables/)
 
 ### Small print
 

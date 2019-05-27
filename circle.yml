@@ -18,6 +18,7 @@ jobs:
             - node_modules
       - run: $(npm bin)/print-env CIRCLE
       - run: npm test
+      - run: npm run demo
 
 workflows:
   version: 2
