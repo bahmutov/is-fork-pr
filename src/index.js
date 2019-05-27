@@ -66,4 +66,22 @@ const isForkPrAppVeyor = () => {
 const isForkPr = () =>
   isForkPrTravis() || isForkPrCircle() || isForkPrAppVeyor()
 
-module.exports = { isForkPr }
+/**
+ * Returns the name of the detected supported CI.
+ * If cannot detect a supported CI, returned undefined
+ */
+const getCiName = () => {
+  if (isForkPrTravis()) {
+    return 'Travis'
+  }
+
+  if (isForkPrCircle()) {
+    return 'Circle'
+  }
+
+  if (isForkPrAppVeyor()) {
+    return 'AppVeyor'
+  }
+}
+
+module.exports = { getCiName, isForkPr }
