@@ -20,11 +20,21 @@ npm install --save is-fork-pr
 
 ## Use
 
+### `isForkPr`
+
 ```js
 const isForkPr = require('is-fork-pr').isForkPr
 if (isForkPr()) {
   console.log('building forked PR, no environment vars')
 }
+```
+
+### `getCiName`
+
+```js
+const getCiName = require('is-fork-pr').getCiName
+// returns undefined if cannot determine the CI
+console.log('Running on %s', getCiName())
 ```
 
 ### CLI
@@ -40,6 +50,7 @@ Prints if a supported CI detected and if this is a forked PR
 - Travis CI, [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
 - Circle CI v2, [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
 - AppVeyor CI [env variables](https://www.appveyor.com/docs/environment-variables/)
+- GitHub Actions [env variables](https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables)
 
 ### Small print
 
