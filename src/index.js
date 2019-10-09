@@ -1,5 +1,9 @@
 'use strict'
 
+const isTravis = () => process.env.TRAVIS === 'true'
+const isCircle = () => process.env.CIRCLECI === 'true'
+const isAppVeyor = () => Boolean(process.env.APPVEYOR)
+
 /**
  * Returns true if the Travis CI is building a pull request from
  * a remote repository fork. This means the environment variables
@@ -71,15 +75,15 @@ const isForkPr = () =>
  * If cannot detect a supported CI, returned undefined
  */
 const getCiName = () => {
-  if (isForkPrTravis()) {
+  if (isTravis()) {
     return 'Travis'
   }
 
-  if (isForkPrCircle()) {
+  if (isCircle()) {
     return 'Circle'
   }
 
-  if (isForkPrAppVeyor()) {
+  if (isAppVeyor()) {
     return 'AppVeyor'
   }
 }
