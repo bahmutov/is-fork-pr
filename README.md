@@ -51,6 +51,7 @@ Prints if a supported CI detected and if this is a forked PR
 - Circle CI v2, [Circle v2 variables](https://circleci.com/docs/2.0/env-vars/)
 - AppVeyor CI [env variables](https://www.appveyor.com/docs/environment-variables/)
 - GitHub Actions [env variables](https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables)
+- fallback environment variable `IS_FORK_PR`. If this variable is set to "1" or "true", then this module will return `true`, assuming you have set the env variable yourself.
 
 ### Small print
 
