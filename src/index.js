@@ -25,6 +25,7 @@ const isForkPrTravis = () => {
 }
 
 const isString = s => typeof s === 'string'
+const isStringTruthy = s => isString(s) && (s === '1' || s === 'true')
 
 /**
  * Returns true if this is CircleCI building forked PR from another repo.
@@ -83,11 +84,18 @@ const isForkGitHubActions = () => {
   )
 }
 
+/**
+ * Fallback - if the user has set env variable IS_FORK_PR to "1" or "true",
+ * we should assume this is a forked pull request.
+ */
+const isForkEnvVariableSet = () => isStringTruthy(process.env.IS_FORK_PR)
+
 const isForkPr = () =>
   isForkPrTravis() ||
   isForkPrCircle() ||
   isForkPrAppVeyor() ||
-  isForkGitHubActions()
+  isForkGitHubActions() ||
+  isForkEnvVariableSet()
 
 /**
  * Returns the name of the detected supported CI.
