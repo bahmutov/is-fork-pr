@@ -2,6 +2,7 @@
 
 /* eslint-env mocha */
 const isForkPr = require('.').isForkPr
+const getCiName = require('.').getCiName
 const mockedEnv = require('mocked-env')
 const la = require('lazy-ass')
 
@@ -46,6 +47,31 @@ context('Travis', () => {
 
     it('does not find fork PR', () => {
       la(!isForkPr(), 'should NOT be fork PR')
+    })
+
+    it('knows it is Travis', () => {
+      la(getCiName() === 'Travis', 'wrong CI name', getCiName())
+    })
+
+    afterEach(() => {
+      restore()
+    })
+  })
+
+  describe('regular build on Travis', () => {
+    let restore
+
+    beforeEach(() => {
+      restore = mockedEnv(
+        {
+          TRAVIS: 'true'
+        },
+        { clear: true }
+      )
+    })
+
+    it('knows it is Travis', () => {
+      la(getCiName() === 'Travis', 'wrong CI name', getCiName())
     })
 
     afterEach(() => {
