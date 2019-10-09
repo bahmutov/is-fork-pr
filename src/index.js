@@ -3,6 +3,7 @@
 const isTravis = () => process.env.TRAVIS === 'true'
 const isCircle = () => process.env.CIRCLECI === 'true'
 const isAppVeyor = () => Boolean(process.env.APPVEYOR)
+const isGitHubActions = () => process.env.GITHUB_ACTIONS === 'true'
 
 /**
  * Returns true if the Travis CI is building a pull request from
@@ -67,8 +68,26 @@ const isForkPrAppVeyor = () => {
   return APPVEYOR_REPO_NAME !== APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME
 }
 
+/**
+ * Returns true if running on GitHub Actions
+ * and the current build is from forked repository pull request.
+ * @see https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables
+ */
+const isForkGitHubActions = () => {
+  if (!isGitHubActions()) {
+    return false
+  }
+  const { GITHUB_EVENT_NAME, GITHUB_HEAD_REF, GITHUB_BASE_REF } = process.env
+  return (
+    GITHUB_EVENT_NAME === 'pull_request' && GITHUB_HEAD_REF && GITHUB_BASE_REF
+  )
+}
+
 const isForkPr = () =>
-  isForkPrTravis() || isForkPrCircle() || isForkPrAppVeyor()
+  isForkPrTravis() ||
+  isForkPrCircle() ||
+  isForkPrAppVeyor() ||
+  isForkGitHubActions()
 
 /**
  * Returns the name of the detected supported CI.
@@ -85,6 +104,10 @@ const getCiName = () => {
 
   if (isAppVeyor()) {
     return 'AppVeyor'
+  }
+
+  if (isGitHubActions()) {
+    return 'GitHub Actions'
   }
 }
 
